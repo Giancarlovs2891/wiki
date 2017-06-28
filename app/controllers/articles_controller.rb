@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :find_article, only: [:show, :edit, :update, :destroy]
 
   def index
-    #code
+    @articles = Article.all
   end
 
   def show
