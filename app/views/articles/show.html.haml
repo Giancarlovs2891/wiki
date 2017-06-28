@@ -3,5 +3,6 @@
 %p= @article.category.name
 
 = link_to "Back", root_path
-= link_to "Edit", edit_article_path
-= link_to "Delete", @article, method: :delete, data: { confirm: "Are you sure?" }
+- if user_signed_in? && @article.user == current_user
+  = link_to "Edit", edit_article_path
+  = link_to "Delete", @article, method: :delete, data: { confirm: "Are you sure?" }
