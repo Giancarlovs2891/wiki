@@ -1,8 +1,9 @@
 %h1= @article.title
 %p= @article.content
 %p= @article.category.name
-
-= link_to "Back", root_path
-- if user_signed_in? && @article.user == current_user
-  = link_to "Edit", edit_article_path
-  = link_to "Delete", @article, method: :delete, data: { confirm: "Are you sure?" }
+%br/
+.btn-group
+  = link_to "Back", root_path, class: "btn btn-default"
+  - if user_signed_in? && @article.user == current_user
+    = link_to "Edit", edit_article_path, class: "btn btn-default"
+    = link_to "Delete", @article, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default"
